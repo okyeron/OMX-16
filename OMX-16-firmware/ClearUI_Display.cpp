@@ -49,7 +49,7 @@ void initializeDisplay() {
 
 // Display is mounted upside down on PCB
 void setRotationNormal() {
-	display.setRotation(2);
+	display.setRotation(0);
 }
 
 void setRotationSideways() {

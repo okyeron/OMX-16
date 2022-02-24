@@ -87,7 +87,7 @@ void setup() {
 	Serial.begin(115200);
 	MM::begin();
 
-	while ( !USBDevice.mounted() ) delay(1);
+	// while ( !USBDevice.mounted() ) delay(1);
 	
 	randomSeed(analogRead(A3));
 	srand(analogRead(A3));
@@ -220,7 +220,7 @@ void drawLoading(void) {
 		display.clearDisplay();
 		u8g2_display.setCursor(18,18);
 		u8g2_display.setFont(FONT_TENFAT);
-		u8g2_display.print("OMX-27");
+		u8g2_display.print("OMX-16");
 		u8g2_display.setFont(FONT_SYMB_BIG);
 		u8g2centerText(loader[i%4], 80, 10, 32, 32); // "\u00BB\u00AB" // // dice: "\u2685"
 		display.display();
