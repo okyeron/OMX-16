@@ -16,15 +16,7 @@
 #include "ClearUI.h"
 #include "omx_keypad.h"
 
-// DEVICE INFO FOR ADAFRUIT M0 or M4 
-char mfgstr[32] = "denki-oto";
-char prodstr[32] = "OMX-16";
-//char serialstr[32] = "m4676123";
-
-#include <Adafruit_DotStar.h>
-Adafruit_DotStar dotstar(1, 41, 40, DOTSTAR_BRG);
-
-# MOZZI BIZ
+// MOZZI BIZ
 #include <MozziGuts.h>
 #include <Oscil.h>
 #include <tables/saw_analogue512_int8.h> // oscillator waveform
@@ -32,6 +24,14 @@ Adafruit_DotStar dotstar(1, 41, 40, DOTSTAR_BRG);
 #include <LowPassFilter.h>
 #include <mozzi_rand.h>  // for rand()
 #include <mozzi_midi.h>  // for mtof()
+
+// DEVICE INFO FOR ADAFRUIT M0 or M4 
+char mfgstr[32] = "denki-oto";
+char prodstr[32] = "OMX-16";
+//char serialstr[32] = "m4676123";
+
+#include <Adafruit_DotStar.h>
+Adafruit_DotStar dotstar(1, 41, 40, DOTSTAR_BRG);
 
 Oscil<SAW_ANALOGUE512_NUM_CELLS, AUDIO_RATE> aOsc1(SAW_ANALOGUE512_DATA);
 Oscil<SAW_ANALOGUE512_NUM_CELLS, AUDIO_RATE> aOsc2(SAW_ANALOGUE512_DATA);
@@ -42,7 +42,7 @@ Oscil<COS2048_NUM_CELLS, CONTROL_RATE> kFilterMod(COS2048_DATA);
 
 LowPassFilter lpf;
 uint8_t resonance = 170; // range 0-255, 255 is most resonant
-uint8_t notes[] = {33, 34, 31}; // possible notes to play MIDI A1, A1#, G1
+uint8_t moz_notes[] = {33, 34, 31}; // possible notes to play MIDI A1, A1#, G1
 uint16_t note_duration = 17500;
 uint8_t note_id = 0;
 uint32_t lastMillis = 0;
@@ -60,9 +60,6 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 unsigned long longPressInterval = 800;
 unsigned long clickWindow = 200;
 OMXKeypad keypad(longPressInterval, clickWindow, makeKeymap(keys), rowPins, colPins, ROWS, COLS);
-
-
-
 
 
 // VARIABLES / FLAGS
@@ -179,7 +176,7 @@ void loop() {
 
 
 void setNotes() {
-  float f = mtof(notes[note_id]);
+  float f = mtof(moz_notes[note_id]);
   aOsc2.setFreq( f + (float)rand(100)/100); // orig 1.001, 1.002, 1.004
   aOsc3.setFreq( f + (float)rand(100)/100);
   aOsc4.setFreq( f + (float)rand(100)/100);
@@ -202,7 +199,7 @@ void updateControl() {
   if( millis() - lastMillis > note_duration )  {
     lastMillis = millis();
     note_id = rand(3); // (note_id+1) % 3;
-    Serial.println((byte)notes[note_id]);
+    Serial.println((byte)moz_notes[note_id]);
   }
 }
 // mozzi function, called every AUDIO_RATE to output sample
