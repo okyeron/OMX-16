@@ -57,7 +57,7 @@ char keys[ROWS][COLS] = {
   {12,13,14,15}
   };
 byte rowPins[ROWS] = {9, 4, 11, 7}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {5, 2, 0, 3}; //connect to the column pinouts of the keypad
+byte colPins[COLS] = {5, 2, 30, 3}; //connect to the column pinouts of the keypad
 
 // Map the keys OMX10
 // char keys[ROWS][COLS] = {
