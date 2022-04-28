@@ -6,6 +6,10 @@ namespace MM {
 
 	void begin();
 
+	typedef void (*NoteCallBack)(byte, byte, byte);
+	typedef void (*ProgramChangeCallBack)(byte, byte);
+	void setNoteHandlers(NoteCallBack handleNoteOn, NoteCallBack handleNoteOff, NoteCallBack handleControlChange, ProgramChangeCallBack handleProgramChange);
+
 	void sendNoteOn(int note, int velocity, int channel);
 	void sendNoteOff(int note, int velocity, int channel);
 	void sendControlChange(int control, int value, int channel);
@@ -21,5 +25,5 @@ namespace MM {
 	void stopClock();
 
 	bool usbMidiRead();
-	bool midiRead();
+// 	bool midiRead();
 }

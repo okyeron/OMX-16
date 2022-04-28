@@ -24,7 +24,7 @@ const int LED_COUNT = 16;
 
 const int analogPins[] = {A3,A4,A2,A5,A1}; // P1, P2, P3, X, Y
 
-// MIDI_OUT is PIN D0
+// MIDI_OUT is PIN D0 ?
 
 // DAC IS A0
 
@@ -57,7 +57,7 @@ char keys[ROWS][COLS] = {
   {12,13,14,15}
   };
 byte rowPins[ROWS] = {9, 4, 11, 7}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {5, 2, 0, 3}; //connect to the column pinouts of the keypad
+byte colPins[COLS] = {5, 2, 30, 3}; //connect to the column pinouts of the keypad
 
 // Map the keys OMX10
 // char keys[ROWS][COLS] = {
@@ -68,7 +68,7 @@ byte colPins[COLS] = {5, 2, 0, 3}; //connect to the column pinouts of the keypad
 // byte colPins[COLS] = {5, 2, 0, 1, 3}; // column pins for key switches
 
 // KEYBOARD MIDI NOTE LAYOUT
-const int notes[] = {0,
+const int notes[] = {0, 1, 2,
   61,63,   66,68,70,
 60,62,64,65,67,69,71,72};
 

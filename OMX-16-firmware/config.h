@@ -136,10 +136,8 @@ enum SubModes
 };
 
 // KEY SWITCH ROWS/COLS
-#define ROWS 4 //4 rows
-#define COLS 4 //4 columns
-// #define ROWS 2 //five rows
-// #define COLS 5 //six columns
+#define ROWS 4 	//4 rows
+#define COLS 4	//4 columns
 
 // Map the keys
 extern char keys[ROWS][COLS];

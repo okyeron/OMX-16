@@ -31,8 +31,18 @@ namespace MM {
 	void begin() {
 		HWMIDI.begin();
 		usbMIDI.begin();
+		HWMIDI.turnThruOff();
+		usbMIDI.turnThruOff();
 	}
 
+	void setNoteHandlers(NoteCallBack handleNoteOn, NoteCallBack handleNoteOff, NoteCallBack handleControlChange, ProgramChangeCallBack handleProgramChange) {
+		usbMIDI.setHandleNoteOn(handleNoteOn);
+		usbMIDI.setHandleNoteOff(handleNoteOff);
+		usbMIDI.setHandleControlChange(handleControlChange);
+		usbMIDI.setHandleProgramChange(handleProgramChange);
+// 		usbMIDI.setHandleSystemExclusive(OnSysEx);
+	}
+  
 	void sendNoteOn(int note, int velocity, int channel) {
 		usbMIDI.sendNoteOn(note, velocity, channel);
 		HWMIDI.sendNoteOn(note, velocity, channel);
@@ -95,7 +105,7 @@ namespace MM {
 		return usbMIDI.read();
 	}
 
-	bool midiRead(){
-		return HWMIDI.read();
-	}
+// 	bool midiRead(){
+//  		return HWMIDI.read();
+// 	}
 }

@@ -4,7 +4,7 @@
 
 #define NUM_PATTERNS 8
 #define NUM_STEPS 64
-#define NUM_STEPKEYS 16
+#define NUM_STEPKEYS 8
 
 using Micros = unsigned long;    // for tracking time per pattern
 
