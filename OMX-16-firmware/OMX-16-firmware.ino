@@ -1,8 +1,8 @@
 // OMX-16
 
-#include <functional>
+// #include <functional>
 #include <Adafruit_NeoPixel.h>
-//#include <ResponsiveAnalogRead.h>
+#include <ResponsiveAnalogRead.h>
 #include <U8g2_for_Adafruit_GFX.h>
 #include <elapsedMillis.h>
 #include <Adafruit_TinyUSB.h>
@@ -19,12 +19,12 @@
 //#include "storage.h"
 //#include "sysex.h"
 
-//#include "dmadac.h"
-//#include "filesystem.h"
-//#include "msg.h"
-//#include "samplefinder.h"
-//#include "sound.h"
-//#include "types.h"
+#include "dmadac.h"
+#include "filesystem.h"
+#include "msg.h"
+#include "samplefinder.h"
+#include "sound.h"
+#include "types.h"
 
 
 // DEVICE INFO FOR ADAFRUIT M0 or M4 
