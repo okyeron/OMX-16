@@ -26,4 +26,3 @@ inline T map_range_clamped(const T& x,
 {
   return clamp((x - uLo) * ((vHi - vLo) / (uHi - uLo)) + vLo, vLo, vHi);
 }
-

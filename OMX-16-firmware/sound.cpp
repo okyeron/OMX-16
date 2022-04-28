@@ -18,7 +18,7 @@ void TriangleToneSource::playNote(float freq, float dur) {
   theta = quarter;
 
   amp = 0.9;
-  decay = 0.45f * dur / (float)SAMPLE_RATE;
+  decay = 0.9f * dur / (float)SAMPLE_RATE;
 }
 
 void TriangleToneSource::supply(sample_t* buffer, int count) {
@@ -39,8 +39,7 @@ void TriangleToneSource::supply(sample_t* buffer, int count) {
     static const sample_fixed_t zero_offset(SAMPLE_ZERO);
     s += zero_offset;
 
-//     *buffer++ = (sample_t)(s.getInteger());
-    *buffer++ = (sample_t)(s);
+    *buffer++ = (sample_t)(s.getInteger());
 
     theta += delta;
     amp = amp > decay ? amp - decay : 0;

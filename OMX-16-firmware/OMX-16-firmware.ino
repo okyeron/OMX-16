@@ -1,6 +1,6 @@
 // OMX-16
 
-// #include <functional>
+#include <functional>
 #include <Adafruit_NeoPixel.h>
 #include <ResponsiveAnalogRead.h>
 #include <U8g2_for_Adafruit_GFX.h>
