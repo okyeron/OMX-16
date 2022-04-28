@@ -236,7 +236,7 @@ bool initFileSystem(bool force) {
   flash.syncBlocks();
 
   if (!fatfs.begin(&flash)) {
-  errorMsg("Format did not work");
+    errorMsg("Format did not work");
     return false;
   }
 
@@ -251,4 +251,5 @@ bool initFileSystem(bool force) {
   statusMsg("Done, resetting....");
   Watchdog.enable(2000);
   delay(3000);
+  return true;
 }
